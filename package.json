@@ -1,7 +1,6 @@
 {
   "name": "next-gen-solutions",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -29,5 +28,6 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "sequelize": "^6.5.1"
-  }
+  },
+  "description": ""
 }
