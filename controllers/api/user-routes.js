@@ -8,17 +8,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: UserProfile,
-        attributes: [
-          "id",
-          "user_id",
-          "age",
-          "bio",
-          "gender",
-          "instagram",
-          "facebook",
-          "twitter",
-          "phone",
-        ],
+        attributes: ["id", "user_id"],
       },
     ],
   })
@@ -39,17 +29,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: UserProfile,
-        attributes: [
-          "id",
-          "user_id",
-          "age",
-          "bio",
-          "gender",
-          "instagram",
-          "facebook",
-          "twitter",
-          "phone",
-        ],
+        attributes: ["id", "user_id"],
       },
     ],
   })
