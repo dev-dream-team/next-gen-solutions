@@ -15,17 +15,17 @@ UserInterest.init(
     },
     user_profile_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "user_profile",
-        key: "id",
-      },
+      // references: {
+      //   model: "user_profile",
+      //   key: "id",
+      // },
     },
     interest_id: {
       type: DataTypes.INTEGER,
-      references: {
-        model: "interest",
-        key: "id",
-      },
+      // references: {
+      //   model: "interest",
+      //   key: "id",
+      // },
     },
   },
   {
