@@ -1,63 +1,68 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const bcrypt = require("bcrypt");
 
-// create User model
-class User extends Model {
-  // set up method to run on instance data (per user) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+// create UserProfile model
+class UserProfile extends Model {}
 
 // define table columns and configuration
-User.init(
+UserProfile.init(
   {
-    //  TABLE  COLUMN  DEFINITIONS GO HERE
     id: {
       // use the special Sequalize DataTypes object provide what type of data it is
       type: DataTypes.INTEGER,
-      // this is the equivalent of SQL's 'NOT NULL'
       allowNull: false,
       // instruct that this is the Primary Key
       primaryKey: true,
       // turn on auto increment
       autoIncrement: true,
     },
-    username: {
-      // define a username column
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      // there cannot be any duplicate email values in this table
-      unique: true,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      // there cannot be any duplicate email values in this table
-      unique: true,
-      validate: {
-        isEmail: true,
+      references: {
+        model: "user",
+        key: "id",
       },
     },
-    password: {
+    age: {
+      type: DataTypes.INTEGER,
+    },
+    bio: {
       type: DataTypes.STRING,
-      allowNull: false,
+    },
+    gender: {
+      type: DataTypes.STRING,
+    },
+    instagram: {
+      type: DataTypes.STRING,
       validate: {
-        // this means the password must be at least four characters long
-        len: [6],
+        isUrl: true,
+      },
+    },
+    facebook: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+      },
+    },
+    twitter: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+      },
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    profile_url: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
       },
     },
   },
   {
-    hooks: {
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-    },
-    // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration)
-
+    // TABLE CONFIGURATION OPTIONS
     // pass in our imported sequelize connection (the direct connection to our database)
     sequelize,
     // don't automatically create createdAt/updatedAt timestamp fields
@@ -68,7 +73,7 @@ User.init(
     // in Sequelize, columns are camelcase by default.
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: "user",
+    modelName: "user_profile",
   }
 );
-module.exports = User;
+module.exports = UserProfile;

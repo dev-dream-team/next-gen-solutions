@@ -1,10 +1,16 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, UserProfile } = require("../../models");
 
 // GET /api/users
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: UserProfile,
+        attributes: ["id", "user_id"],
+      },
+    ],
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
@@ -20,26 +26,12 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    // TODO: uncomment Post and Comment blocks below once models are implemented
-    // include: [
-    //   {
-    //     model: Post,
-    //     attributes: ["id", "title", "content", "created_at"],
-    //   },
-    //   // include the Comment model here:
-    //   {
-    //     model: Comment,
-    //     attributes: ["id", "comment_text", "created_at"],
-    //     include: {
-    //       model: Post,
-    //       attributes: ["title"],
-    //     },
-    //   },
-    //   {
-    //     model: Post,
-    //     attributes: ["title"],
-    //   },
-    // ],
+    include: [
+      {
+        model: UserProfile,
+        attributes: ["id", "user_id"],
+      },
+    ],
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -74,6 +66,11 @@ router.post("/", (req, res) => {
       req.session.loggedIn = true;
 
       res.json(dbUserData);
+
+      const user_id = {
+        user_id: dbUserData.id,
+      };
+      UserProfile.create(user_id);
     });
   });
 });
