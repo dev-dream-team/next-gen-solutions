@@ -1,13 +1,13 @@
 const path = require("path");
 const express = require("express");
-// const exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 const session = require("express-session");
-// const helpers = require("./utils/helpers");
+const helpers = require("./utils/helpers");
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 
-// const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ helpers });
 const SequelStore = require("connect-session-sequelize")(session.Store);
 
 // https://stackoverflow.com/questions/46630368/how-to-extend-express-session-timeout
@@ -27,7 +27,7 @@ const sess = {
 };
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3006;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,8 +42,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 // set up Handlebars.js as your app's template engine of choice
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 // Turn on connction to db and db server.
 sequelize.sync({ force: false }).then(() => {
