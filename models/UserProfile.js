@@ -54,6 +54,12 @@ UserProfile.init(
     phone: {
       type: DataTypes.STRING,
     },
+    profile_url: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+      },
+    },
   },
   {
     // TABLE CONFIGURATION OPTIONS
