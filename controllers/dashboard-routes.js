@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { User, Bio, Interests } = require('../models');
+const { User, UserProfile, Interests, UserInterests } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
@@ -20,19 +20,22 @@ router.get('/', withAuth, (req, res) => {
         ],
         include: [
             {
-                model: Bio,
-                // 
-                attributes: ['id', 'title', 'user_id']
+                model: UserProfile,
+                attributes: ['id', 'age', 'user_id', 'gender', 'bio']
             },
             {
-                model: Interests,
-                attributes: ['id', 'title', 'user_id']
+                model: UserInterests,
+                attributes: ['id', 'interest_id', 'user_id']
             }
         ]
     })
         .then(dbUserData => {
             //serialize data before passing to template
-            const users = dbUserData.map(user => user.get({ plain: true }));
+            // filter here to get users with (interests, age, gender, lang)
+            const users = dbUserData.map(user => {
+                // algorithm/ function() to handle filtering to return array of users
+                user.get({ plain: true });
+            });
             res.render('dashboard', { users, loggedIn: true });
         })
         .catch(err => {
@@ -51,7 +54,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         include: [
             {
                 model: Bio,
-                // 
                 attributes: ['id', 'title', 'user_id']
             },
             {
