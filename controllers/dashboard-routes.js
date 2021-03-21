@@ -53,12 +53,12 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ],
         include: [
             {
-                model: Bio,
-                attributes: ['id', 'title', 'user_id']
+                model: UserProfile,
+                attributes: ['id', 'age', 'user_id', 'gender', 'bio']
             },
             {
-                model: Interests,
-                attributes: ['id', 'title', 'user_id']
+                model: UserInterests,
+                attributes: ['id', 'interest_id', 'user_id']
             }
         ]
     })
