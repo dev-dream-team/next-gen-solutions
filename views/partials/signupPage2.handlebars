@@ -1,0 +1,49 @@
+<form class="questionnare-form">
+
+  
+  {{!-- Enter Age   --}}
+        <div>
+            <label for="Age">Age:</label>
+            <div>
+                <input class="form-control" type="number" placeholder="18" id="age">
+            </div>
+        </div>
+         <small id="ageHelpInline" class="text-muted">
+             Enter your age
+         </small><hr>
+
+   {{!-- Enter Bio  --}}
+         <label for="bio">Bio :</label>
+        <div class="input-group">
+        <textarea class="form-control" id="bio" placeholder="Tell me more about yourself..." aria-label="With textarea"></textarea>
+        </div>
+
+  {{!-- Select Gender --}}
+         <label for="Gender">Gender:</label>
+        <div class="form-check form-check-inline" id="genderselection">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
+        <label class="form-check-label" for="inlineRadio1">Female</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+        <label class="form-check-label" for="inlineRadio2">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+        <label class="form-check-label" for="inlineRadio3">Non-Binary</label>
+        </div>
+         <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" checked>
+        <label class="form-check-label" for="inlineRadio3">Choose Not to Say</label>
+        </div>
+
+    {{!-- Enter Contact info --}}
+        <label for="example-tel-input">Contact Number:</label>
+        <div>
+            <input class="form-control" type="tel" placeholder="1-(555)-555-5555" id="phone">
+        </div>
+
+  <div>
+    <button type="submit" class="nextbtn">Next</button>
+  </div>
+  </form>

@@ -27,11 +27,27 @@ const sess = {
 };
 
 const app = express();
-const PORT = process.env.PORT || 3006;
+const PORT = process.env.PORT || 3008;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session(sess));
+
+app.get('/', (req,res) => {
+  res.render('index');
+})
+
+app.get('/signup', (req,res) => {
+  res.render('signup');
+})
+
+app.get('/questionnare', (req,res) => {
+  res.render('questionnare');
+})
+
+app.get('/bio', (req,res) => {
+  res.render('bio');
+})
 
 // The express.static() method is a built-in Express.js middleware function
 // that can take all of the contents of a folder and serve them as static assets.
