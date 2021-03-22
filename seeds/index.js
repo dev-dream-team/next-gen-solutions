@@ -9,16 +9,16 @@ const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log("\n----- DATABASE SYNCED -----\n");
 
-  await seedInterests();
-  console.log("\n----- Interests SEEDED -----\n");
-
   await seedUsers();
   console.log("\n----- Interests SEEDED -----\n");
 
-  await seedUserInterests();
+  await seedUserProfiles();
   console.log("\n----- Interests SEEDED -----\n");
 
-  await seedUserProfiles();
+  await seedInterests();
+  console.log("\n----- Interests SEEDED -----\n");
+
+  await seedUserInterests();
   console.log("\n----- Interests SEEDED -----\n");
 
   process.exit(0);
