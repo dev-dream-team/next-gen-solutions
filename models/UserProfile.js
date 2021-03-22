@@ -15,14 +15,15 @@ UserProfile.init(
       primaryKey: true,
       // turn on auto increment
       autoIncrement: true,
+      unique: true
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      // references: {
-      //   model: "user",
-      //   key: "id",
-      // },
+      references: {
+        model: "user",
+        key: "id",
+      },
     },
     age: {
       type: DataTypes.INTEGER,

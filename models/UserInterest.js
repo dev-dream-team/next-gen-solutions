@@ -9,12 +9,13 @@ UserInterest.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
     user_profile_id: {
       type: DataTypes.INTEGER,
+      // commented out becasue it breaks seeding? 
       // references: {
       //   model: "user_profile",
       //   key: "id",
@@ -22,10 +23,10 @@ UserInterest.init(
     },
     interest_id: {
       type: DataTypes.INTEGER,
-      // references: {
-      //   model: "interest",
-      //   key: "id",
-      // },
+      references: {
+        model: "interest",
+        key: "id",
+      },
     },
   },
   {
