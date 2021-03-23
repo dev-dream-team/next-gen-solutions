@@ -5,9 +5,11 @@ const FormData = require("form-data");
 var multer = require("multer");
 var upload = multer({ dest: "uploads/" });
 const formData = new FormData();
+const withAuth = require("../../utils/helpers/auth");
 
 //  multer middleware will write to a folder called 'uploads/'
 //  read  it and send it to your callback function
+// router.post("/", withAuth, upload.single("file"), async (req, res) => {
 router.post("/", upload.single("file"), async (req, res) => {
   formData.append("file", req.file.path);
   formData.append("upload_preset", "docs_upload_unsigned_us_preset");
@@ -28,6 +30,9 @@ router.post("/", upload.single("file"), async (req, res) => {
       return result;
     }
   );
+  // TODO: remove hardcoding and auth request once integrated with other routes
+  // upload.user_id = req.session.user_id;
+  upload.user_id = 1;
   res.json(upload);
   fs.unlink(req.file.path, (err) => {
     if (err) {
