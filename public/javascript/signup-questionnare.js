@@ -11,7 +11,7 @@ async function signupQuestionnareFormHandler(event) {
       ];
     // if (age) {
     //   console.log(age);
-      const response = await fetch("api/userProfiles/questionnare", {
+      const response = await fetch(`api/userProfiles/23`, {
         method: "PUT",
         body: JSON.stringify({
             id,

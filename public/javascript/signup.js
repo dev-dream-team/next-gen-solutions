@@ -6,29 +6,24 @@ async function signupFormHandler(event) {
   const password = document.querySelector("#psw").value.trim();
 
   if (username && email && password) {
-    fetch("api/users", {
-      method: "POST",
+    const response = await fetch('/api/users', {
+      method: 'post',
       body: JSON.stringify({
         username,
         email,
-        password,
+        password
       }),
-      headers: { "Content-Type": "application/json" },
-    })
-    .then(function(response){
-      if(response.ok){
-      window.alert(response.json.username);  
-      document.location.replace("/questionnare");
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.location.replace('/questionnare');
     } else {
       alert(response.statusText);
     }
   }
-  );
 }
-}
-document
-  .querySelector(".nextbtn")
-  .addEventListener("click", signupFormHandler);
+document.querySelector(".nextbtn").addEventListener("click", signupFormHandler);
 
 
   // $(document).ready(function(){

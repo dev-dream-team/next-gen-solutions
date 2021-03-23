@@ -35,6 +35,11 @@ nav a {
   color: darkgoldenrod !important;
 }
 
+navbar-brand {
+  text-decoration-style: wavy;
+  text-decoration: solid;
+}
+
 button {
   background-color: #225ca3;
   border: 0;
@@ -104,7 +109,6 @@ main {
 
 
 /* HOME */
-
 .col-sm-12 {
   padding: 15px;
 }
@@ -259,7 +263,7 @@ hr {
 }
 
 /* Set a style for the submit/register button */
-.nextbtn {
+.nextbtn  {
   background-color: #4CAF50;
   color: white;
   padding: 16px 20px;
@@ -270,9 +274,26 @@ hr {
   opacity: 0.9;
 }
 
-.nextbtn:hover {
+.nextbtn:hover .loginbtn:hover{
   opacity:1;
 }
+
+/* Set a style for the login button */
+.loginbtn  {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.loginbtn:hover{
+  opacity:1;
+}
+
 
 
 /* Add a blue text color to links */

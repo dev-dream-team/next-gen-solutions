@@ -14,29 +14,5 @@ router.get("/upload-img", (req, res) => {
   res.render("upload-img");
 });
 
-router.get("/signup", (req, res) => {
-  // res.render("dashboard", { posts, loggedIn: true });
-  res.render("signup");
-});
-
-router.get("/questionnare", (req, res) => {
-  // res.render("dashboard", { posts, loggedIn: true });
-  res.render("signup-questionnare");
-});
-
-router.get("/bio", (req, res) => {
-  // res.render("dashboard", { posts, loggedIn: true });
-  res.render("signup-interest");
-});
-
-router.get("/login", (req, res) => {
-  // res.render("dashboard", { posts, loggedIn: true });
-  res.render("login");
-});
-
-router.get("/dashboard", (req, res) => {
-  // res.render("dashboard", { interest_name, loggedIn: true });
-  res.render("dashboard");
-});
 
 module.exports = router;
