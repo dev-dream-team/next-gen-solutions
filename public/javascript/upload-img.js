@@ -1,33 +1,31 @@
-// create a custom api 
-// check npm package that would make a fetch request to 3rd party
-
-// const secretKey = process.env.CLOUD_NAME
-
-const url = `https://api.cloudinary.com/v1_1/${secretKey}/image/upload`;
-
-const form = document.querySelector("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
+async function uploadFileHandler(e) {
+  e.preventDefault(); //prevents default behavior, in this case, form submission
   const files = document.querySelector("[type=file]").files;
+  let file = files[0];
   const formData = new FormData();
+  formData.append("file", file);
+  const response = await fetch(`/api/upload`, {
+    method: "POST",
+    body: formData,
+  });
 
-  for (let i = 0; i < files.length; i++) {
-    let file = files[i];
-    formData.append("file", file);
-    formData.append("upload_preset", "docs_upload_unsigned_us_preset");
-
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        document.getElementById("data").innerHTML += data.secure_url;
-        // make put request to userProofile route
+  if (response.ok) {
+    // set userProfile picture
+    response.json().then((data) => {
+      // TODO: remove hardcoding and replace w/ actual userProfile id
+      fetch("/api/userProfiles/1", {
+        method: "PUT",
+        body: JSON.stringify({
+          profile_url: data.url,
+        }),
+        headers: { "Content-Type": "application/json" },
       });
+    });
+    alert("Your profile picture has been successfully saved");
+    // TODO: redirect to next screen
+  } else {
+    alert(response.statusText);
   }
-});
+}
+
+document.querySelector("form").addEventListener("submit", uploadFileHandler);
