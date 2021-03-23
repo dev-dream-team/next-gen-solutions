@@ -3,28 +3,18 @@ async function signupQuestionnareFormHandler(event) {
   
     const age = document.querySelector("#age").value;
     const bio = document.querySelector("#bio").value;
-    
-
-    var gender = $('#genderselection input:radio:checked').val();
-    //var gender = $('#genderselection label.active input').val()
+    var gender = $( "input:checked" ).val();
     const phone = document.querySelector("#phone").value;
    
-    // const id = window.location.toString().split('/')[
-    //     window.location.toString().split('/').length - 1
-    //   ];
-    //   console.log(window.location.toString());
-    //   console.log(age);
-    //   console.log(bio);
-    //   console.log(gender);
-    //   console.log(phone);
-    //   console.log(id);
-
-  
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
     // if (age) {
     //   console.log(age);
-      const response = await fetch(`api/userProfiles/9`, {
+      const response = await fetch("api/userProfiles/questionnare", {
         method: "PUT",
         body: JSON.stringify({
+            id,
           age,
           bio,
           gender,
@@ -43,3 +33,4 @@ async function signupQuestionnareFormHandler(event) {
   document
     .querySelector(".nextbtn")
     .addEventListener("click", signupQuestionnareFormHandler);
+

@@ -13,15 +13,26 @@ UserProfile.belongsTo(User, {
   onDelete: "cascade",
 });
 
+// UserProfile.hasMany(Interest, {
+//   as: "interests",
+//   foreignKey: "user_profile_id",
+// });
+
+// Interest.belongsToMany(UserProfile, {
+//   through:  UserInterest,
+//   as: "user_profiles",
+//   foreignKey: "interest_id",
+// });
+
 UserProfile.belongsToMany(Interest, {
   through: UserInterest,
-  as: "interests",
+  as: "user_interests",
   foreignKey: "user_profile_id",
 });
 
 Interest.belongsToMany(UserProfile, {
   through: UserInterest,
-  as: "interest",
+  as: "user_profiles",
   foreignKey: "interest_id",
 });
 

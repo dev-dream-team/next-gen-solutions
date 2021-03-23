@@ -29,4 +29,14 @@ router.get("/bio", (req, res) => {
   res.render("signup-interest");
 });
 
+router.get("/login", (req, res) => {
+  // res.render("dashboard", { posts, loggedIn: true });
+  res.render("login");
+});
+
+router.get("/dashboard", (req, res) => {
+  // res.render("dashboard", { interest_name, loggedIn: true });
+  res.render("dashboard");
+});
+
 module.exports = router;

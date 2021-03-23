@@ -1,13 +1,16 @@
 const router = require("express").Router();
-const registrationRoutes = require("./registration-routes");
-
 // Collects the packaged group of API endpoints and prefixing them with the path /api
 const apiRoutes = require("./api");
-// const { route } = require("./home-routes.js");
+const homeRoutes = require('./home-routes.js');
+const dashboardRoutes = require('./dashboard-routes.js');
+const registrationRoutes = require('./registration-routes.js');
 
+// Main routes of application. 
+router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
-// router.use("/", homeRoutes);
-router.use("/registration", registrationRoutes);
+// Now all dashboard views will be prefixed with /dashboard. In dashboard-routes.js
+router.use("/dashboard", dashboardRoutes);
+router.use("/dashboard", registrationRoutes);
 
 // if we make a request to any endpoint that doesn't exist,
 // we'll receive a 404 error indicating we have requested an incorrect resource,
