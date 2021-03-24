@@ -21,8 +21,6 @@ const seedAll = async () => {
   await seedUserInterests();
   console.log("\n----- Interests SEEDED -----\n");
 
-
-
   process.exit(0);
 };
 
