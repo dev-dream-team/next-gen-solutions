@@ -1,0 +1,10 @@
+.avatar {
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+}
+div .avatar-wrapper {
+  text-align: center;
+}
