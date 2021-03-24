@@ -1,35 +1,27 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const router = require("express").Router();
 
 router.get("/", (req, res) => {
-    res.render("index");
-  });
+  if (!req.session.loggedIn) {
+    res.redirect("/signup");
+    return;
+  }
+  res.redirect("/dashboard");
+});
 
-//This is to render the Login Dashboard
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('login');
-  });
-  
-  router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('signup');
-  });
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+  res.render("login");
+});
 
-  router.get('/questionnare', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-    res.render('questionnare');
-  });
-
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("signup");
+});
 
 module.exports = router;

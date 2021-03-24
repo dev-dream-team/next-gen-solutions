@@ -23,13 +23,13 @@ const sess = {
   store: new SequelStore({
     db: sequelize,
   }),
-  cookie: {
-    maxAge: 60 * 1000, // 60 sec
-  },
+  // cookie: {
+  //   maxAge: 60 * 1000, // 60 sec
+  // },
 };
 
 const app = express();
-const PORT = process.env.PORT || 3008;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

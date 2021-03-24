@@ -2,7 +2,7 @@
 // const router = require('express').Router();
 // const sequelize = require('../config/connection');
 // const { UserInterest , UserProfile, User, Interest} = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
 
 // router.get("/dashboard", (req, res) => {
 //     // res.render("dashboard", { interest_name, loggedIn: true });
@@ -14,7 +14,8 @@ const { User, UserProfile, Interest, UserInterest } = require("../models");
 const router = require("express").Router();
 // const withAuth = require('../utils/auth');
 
-// put back withAuth on both
+// put back  on both
+// router.get("/", withAuth, (req, res) => {
 router.get("/", (req, res) => {
   // handle req.body, if user doesnt select interest, age, gender, or lang
   // req.body = {interests: "", age: 1, gender: "", lang: ""}
