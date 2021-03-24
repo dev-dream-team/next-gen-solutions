@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
 router.get("/:id", (req, res) => {
   UserProfile.findOne({
     where: {
-      id: req.params.id,
+      user_id: req.params.id,
     },
     include: [
       {
@@ -61,7 +61,7 @@ router.get("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   UserProfile.findOne({
     where: {
-      id: req.params.id,
+      user_id: req.params.id,
     },
   }).then((dbUserData) => {
     if (!dbUserData) {

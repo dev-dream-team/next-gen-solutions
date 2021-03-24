@@ -14,5 +14,4 @@ router.get("/upload-img", (req, res) => {
   res.render("upload-img");
 });
 
-
 module.exports = router;
