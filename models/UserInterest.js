@@ -15,11 +15,10 @@ UserInterest.init(
     },
     user_profile_id: {
       type: DataTypes.INTEGER,
-      // commented out becasue it breaks seeding? 
-      // references: {
-      //   model: "user_profile",
-      //   key: "id",
-      // },
+      references: {
+        model: "user_profile",
+        key: "id",
+      },
     },
     interest_id: {
       type: DataTypes.INTEGER,

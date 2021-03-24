@@ -24,14 +24,12 @@ UserProfile.belongsTo(User, {
 //   foreignKey: "interest_id",
 // });
 
-//has to be commented out or seeding wont work
 UserProfile.belongsToMany(Interest, {
   through: UserInterest,
   as: "user_interests",
   foreignKey: "user_profile_id",
 });
 
-//has to be commented out or seeding wont work
 Interest.belongsToMany(UserProfile, {
   through: UserInterest,
   as: "user_profile",
