@@ -22,7 +22,7 @@ router.get("/:id", (req, res) => {
       {
         model: UserProfile,
         attributes: ["id", "user_id"],
-        as: "user_profile"
+        as: "user_profile",
       },
     ],
   })
