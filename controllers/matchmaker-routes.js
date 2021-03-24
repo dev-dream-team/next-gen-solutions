@@ -12,7 +12,8 @@ const users = [
   {
     username: "Test",
     interest: "hiking",
-    profile_url: "https://res.cloudinary.com/hvredgn3u/image/upload/v1616485822/ol0bkvjmef2zo9ob8yhy.png",
+    profile_url:
+      "https://res.cloudinary.com/hvredgn3u/image/upload/v1616485822/ol0bkvjmef2zo9ob8yhy.png",
   },
 ];
 
@@ -22,6 +23,10 @@ const users = [
 // because the response has already been sent.
 // router.get("/upload-img", withAuth, (req, res) => {
 router.get("/view", (req, res) => {
+  // retrieve username, interest, profile_url
+  // from userInterests table
+  // where interests contain <interest>
+  // join with userprofile
   res.render("matchmaker", { users });
 });
 
