@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
     JOIN user_interest ON user_interest.user_profile_id = user_profile.id
     JOIN interest ON interest.id = user_interest.interest_id
     WHERE interest.interest_name = '${interest}'
-    AND user_profile.age = ${age}
+    AND user_profile.age = '${age}'
     AND user_profile.gender = '${gender}'
     `)
     .then(([dbUserData]) => {
