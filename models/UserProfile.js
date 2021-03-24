@@ -15,6 +15,7 @@ UserProfile.init(
       primaryKey: true,
       // turn on auto increment
       autoIncrement: true,
+      unique: true
     },
     user_id: {
       type: DataTypes.INTEGER,

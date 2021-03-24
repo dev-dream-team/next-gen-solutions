@@ -32,7 +32,7 @@ UserProfile.belongsToMany(Interest, {
 
 Interest.belongsToMany(UserProfile, {
   through: UserInterest,
-  as: "user_profiles",
+  as: "user_profile",
   foreignKey: "interest_id",
 });
 
