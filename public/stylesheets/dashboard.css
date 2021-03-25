@@ -36,12 +36,18 @@ h4 {
 }
 
 .btn {
-  background-color: rgb(189, 176, 111) 
+  /* background-color: rgb(189, 176, 111)  */
+  padding-top: 12%;
 }   
 
 .suggestionscard-header {
   display: flex;  
   flex-direction: column;
   float: left;
+}
+
+.display_username h3{
+  padding-top: 3%;
+  text-align: center;
 }
 

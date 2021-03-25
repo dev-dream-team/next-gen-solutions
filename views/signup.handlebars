@@ -26,7 +26,7 @@
   </div>
 </form> --}}
 {{!-- Working signup hbr begins --}}
-<div class="signup-container">
+{{!-- <div class="signup-container">
     <div class="row">
         <div class="col-md-offset-5 col-md-5 signup-form-wrapper">
             <div class="form-signup">
@@ -51,7 +51,210 @@
             </div>        
         </div>
     </div>
-</div>   
+</div>    --}}
+
+
+
+
+
+{{!-- <div class="card-deck">
+  <div class="card bg-light">
+              <div class="row">
+                <div class="avatar-wrapper col">
+                  <img src={{userData.profile_url}} alt="User avatar" class="avatar" />
+                </div>  
+                <div class="my-profile col">
+                  <div>  
+                      Username: {{userData.user.username}}
+                    </div>  
+                    <div>
+                      Gender: {{userData.gender}}
+                    </div>  
+                      <div>
+                      Age: {{userData.age}}
+                    </div>  
+                    <div>
+                      Contact Info: {{userData.phone}} {{userData.instragram}} {{userData.facebook}}
+                    </div>
+                      <div>
+                      Interests: 
+                      {{#each userData.user_interests as |interest|}}
+                      {{interest.interest_name}}
+                        {{/each}}
+                    </div>  
+                    <div>
+                        Short bio: {{userData.bio}}
+                    </div>
+                </div>  
+              </div>
+  </div>
+
+<div class="page-wrapper">
+<div class="row">
+<section class="my-profile col">      
+    <h4>My Profile</h4>
+      <div class="col">
+        <div class="my-profile">
+                <div class="header-wrapper card-header">
+                  <div class="row">
+                  <div class="avatar-wrapper col">
+                    <img src={{userData.profile_url}} alt="User avatar" class="avatar" />
+                  </div>  
+                  <div class="my-profile col">
+                    <div>  
+                        Username: {{userData.user.username}}
+                      </div>  
+                      <div>
+                        Gender: {{userData.gender}}
+                      </div>  
+                        <div>
+                        Age: {{userData.age}}
+                      </div>  
+                      <div>
+                        Contact Info: {{userData.phone}} {{userData.instragram}} {{userData.facebook}}
+                      </div>
+                        <div>
+                        Interests: 
+                        {{#each userData.user_interests as |interest|}}
+                        {{interest.interest_name}}
+                          {{/each}}
+                      </div>  
+                      <div>
+                          Short bio: {{userData.bio}}
+                      </div>
+                  </div>  
+                  </div>
+                </div>
+              </div>
+    </div>
+</section>
+{{#if suggestedUserProfiles.length}}
+  <section class="suggestions col">
+    <h4>Users with similar interests</h4>
+    <div class="row">
+      {{#each suggestedUserProfiles as |suggestedUserProfile|}}
+        <div class="col-sm-4">
+          <div class="user">
+            <div class="header-wrapper card-header">
+              <div>
+                <h5>
+                  {{suggestedUserProfile.user.username}}
+                </h5>
+              </div>
+              <div class="avatar-wrapper">
+                <img src={{suggestedUserProfile.profile_url}} alt="User avatar" class="avatar" />
+              </div>
+            <div class="user-info">
+              Age: {{suggestedUserProfile.age}}
+              </div>
+             <div class="user-info">
+              Gender: {{suggestedUserProfile.gender}}
+              </div>
+             <div class="user-info">
+               {{#if suggestedUserProfile.instagram}}
+               <a href="{{suggestedUserProfile.instagram}}">{{format_url suggestedUserProfile.instagram}}</a>
+               {{/if}}
+              </div>
+                <div>
+                     Interests: 
+                     {{#each suggestedUserProfile.user_interests as |interest|}}
+                     {{interest.interest_name}}
+                      {{/each}}
+                  </div>  
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
+</div>
+</div>
+{{/if}} --}}
+
+
+
+
+{{!-- ##################   Dashboard  ############################### --}}
+
+
+<div class="container">
+   {{> auth-user-navbar}}
+  <button
+          onclick="location.href = '/dashboard/search';"
+          class="btn btn-primary text-center">Search for more users!!!
+      </button>
+  <div class="card" style="width:400px">
+    <img class="card-img-top" src={{userData.profile_url}} alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">My profile</h4>
+                   <div>  
+                      Username: {{userData.user.username}}
+                    </div>  
+                    <div>
+                      Gender: {{userData.gender}}
+                    </div> 
+                   <div>
+                      Age: {{userData.age}}
+                    </div>  
+                    <div>
+                      Contact Info: {{userData.phone}} {{userData.instragram}} {{userData.facebook}}
+                    </div>
+                      <div>
+                      Interests: 
+                      {{#each userData.user_interests as |interest|}}
+                      {{interest.interest_name}}
+                        {{/each}}
+                    </div>  
+                    <div>
+                        Short bio: {{userData.bio}}
+                    </div>
+      <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+    </div>
+  </div>
+</div>
+
+
+{{!-- <div class="card" style="fit-content;">
+   <img src={{userData.profile_url}} alt="User avatar" class="avatar" />
+  <div class="card-body">
+    {{!-- <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> --}}
+                    <div>  
+                      Username: {{userData.user.username}}
+                    </div>  
+                    <div>
+                      Gender: {{userData.gender}}
+                    </div>  
+                      <div>
+                      Age: {{userData.age}}
+                    </div>  
+                    <div>
+                      Contact Info: {{userData.phone}} {{userData.instragram}} {{userData.facebook}}
+                    </div>
+                      <div>
+                      Interests: 
+                      {{#each userData.user_interests as |interest|}}
+                      {{interest.interest_name}}
+                        {{/each}}
+                    </div>  
+                    <div>
+                        Short bio: {{userData.bio}}
+                    </div>
+
+</div> --}}
+
+   {{!-- <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div> --}}
+
 
 
 <script src="/javascript/signup.js"></script>

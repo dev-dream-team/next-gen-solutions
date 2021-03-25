@@ -69,7 +69,6 @@ body {
   padding-bottom: 5%;
 }
 
-
 .login-form-wrapper,
 .signup-form-wrapper,
 .questionnare-form-wrapper {
@@ -131,6 +130,7 @@ body {
   border-color: black !important;
   color: black !important;
   font-weight: bolder !important;
+  padding-top: 10%;
 }
 
 .form-login .wrapper > a,
@@ -147,7 +147,14 @@ body {
   font-size: small;
 }
 
+/*  Partials - Display username */
 .display_username h3{
   padding-top: 3%;
   text-align: center;
+}
+
+/* Dashboard Styling */
+
+.btn {
+
 }
