@@ -1,0 +1,39 @@
+{{> auth-user-navbar}}
+<h3 class="user"data-attr={{user.id}}>Last step to finish your profile</h3>
+
+{{!multipart/form-data: No characters are encoded. 
+This value is required when you are using forms that have a file upload control }}
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file"/>
+  <input type="submit" value="Upload Files" name="submit" />
+</form>
+<p id="data"></p>
+
+{{! Select Interests }}
+<label for="interest">
+  <b>
+    Interests
+  </b>
+</label>
+{{#each interests as |interest|}}
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    id={{interest.id}}
+    data-attr={{interest.id}}>
+  <label class="form-check-label" for={{interest.id}}>
+    {{interest.interest_name}}
+  </label>
+</div>
+{{/each}}
+<small id="interestHelpInline" class="text-muted">
+  You may select one or all
+</small>
+<hr />
+<div>
+  <button type="submit" id="finishBtn" class="btn .nextbtn">
+    Finish Profile!
+  </button>
+</div>
+<script src="/javascript/add-interests.js"></script>
