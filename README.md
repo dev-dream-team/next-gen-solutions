@@ -24,7 +24,7 @@ $ npm install
 $ npm run seed
 $ npm run dev
 ```
-2. To view deployed version, go to https://rocky-citadel-30608.herokuapp.com/ 
+2. To view deployed version, go to https://my-friendzone.herokuapp.com
 
 ##  License
 
@@ -58,13 +58,9 @@ SOFTWARE.
   
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+https://github.com/dev-dream-team/next-gen-solutions/issues
 
-https://github.com/yulduzetta/tech-blog/issues
-  
 ## Tests
 ```typescript
 $ npm test
 ```
-
-## Questions
-For any questions on this project, visit https://github.com/dev-dream-team/next-gen-solutions/issues
