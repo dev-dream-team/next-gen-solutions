@@ -9,16 +9,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/landing.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 </head>
 <body>
   <div class="wrapper">
     <header>
+       <h1>
+          <p class="blog-title">FRIENDZONE <i class="large material-icons"><span class="material-icons">
+            connect_without_contact</span></i>
+         </p>
+       </h1>
             <nav class="navbar navbar-dark bg-dark">
-              <a class="navbar-brand" href="#">
-                  </svg><b><i>Friendzone</i></b></a>
                   <a class="nav-item nav-link" href="/">Home</a>
-                  <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
                   {{#if loggedIn}}
+                  <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
                   <a class="nav-item nav-link" id="logout">Logout</a>
                   {{else}}
                   <a class="nav-item nav-link" href="/login">Login</a>
