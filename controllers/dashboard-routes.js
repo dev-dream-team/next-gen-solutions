@@ -3,7 +3,6 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, UserProfile, Interest } = require("../models");
 
-// router.get("/", withAuth, (req, res) => {
 router.get("/", withAuth, (req, res) => {
   let userData, interestIds, suggestedUserIds, suggestedUserProfiles;
   const userId = req.session.user_id;
@@ -73,7 +72,6 @@ router.get("/", withAuth, (req, res) => {
             suggestedUserProfiles = dbUserData.map((profile) =>
               profile.get({ plain: true })
             );
-            console.log(suggestedUserProfiles[0]);
             res.render("dashboard", { userData, suggestedUserProfiles, loggedIn:true });
           });
         });
