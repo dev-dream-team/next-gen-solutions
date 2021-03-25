@@ -74,7 +74,7 @@ router.get("/", withAuth, (req, res) => {
               profile.get({ plain: true })
             );
             console.log(suggestedUserProfiles[0]);
-            res.render("dashboard", { userData, suggestedUserProfiles });
+            res.render("dashboard", { userData, suggestedUserProfiles, loggedIn:true });
           });
         });
     })

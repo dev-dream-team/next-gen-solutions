@@ -23,7 +23,7 @@ router.get("/questionnaire", withAuth, (req, res) => {
 });
 
 // router.get("/", withAuth, (req, res) => {
-router.get("/upload-img", (req, res) => {
+router.get("/more-info", (req, res) => {
   User.findOne({
     where: {
       id: req.session.user_id,
@@ -37,7 +37,7 @@ router.get("/upload-img", (req, res) => {
       return;
     }
     const user = dbUserProfileData.get({ plain: true });
-    res.render("upload-img", { user, loggedIn: true });
+    res.render("more-info", { user, loggedIn: true });
   });
 });
 
