@@ -8,7 +8,7 @@ async function signupInterestFormHandler(event) {
   );
 
   for (var i = 0; i < selectedInterests.length; i++) {
-    interestIds.push(selectedInterests[i].attributes[3].nodeValue);
+    interestIds.push(parseInt(selectedInterests[i].attributes[3].nodeValue));
   }
 
   const user = document.querySelector("#user");
