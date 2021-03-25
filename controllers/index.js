@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
-// Collects the packaged group of API endpoints and prefixing them with the path /api
+// Collects the packaged group of API and public endpoints,
+// then prefixes them with the path
 const apiRoutes = require("./api");
 const homeRoutes = require("./home-routes.js");
 const dashboardRoutes = require("./dashboard-routes.js");

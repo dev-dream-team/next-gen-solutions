@@ -9,7 +9,6 @@ const uploadImgRoutes = require("./upload-routes");
 router.use("/users", userRoutes);
 router.use("/userProfiles", userProfileRoutes);
 router.use("/interests", interestRoutes);
-
 router.use("/upload", uploadImgRoutes);
 
 module.exports = router;

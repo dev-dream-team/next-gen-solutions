@@ -1,16 +1,21 @@
 async function uploadFileHandler(e) {
-  e.preventDefault(); //prevents default behavior, in this case, form submission
+  e.preventDefault(); //prevents default behavior, in this case, form submission reloading the page
 
   const response = await uploadImg();
 
   if (response.ok) {
-    response.json().then((data) => {
-      setUserProfilePictureId(data);
-    });
-    alert("Your profile picture has been successfully uploaded");
-    // TODO: redirect to next screen
+    response
+      .json()
+      .then((data) => {
+        setUserProfilePictureId(data);
+      })
+      .then(() => {
+        alert("Your profile picture has been successfully uploaded");
+        window.location.replace("/dashboard");
+      });
   } else {
     alert(response.statusText);
+    return;
   }
 }
 
