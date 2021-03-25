@@ -63,7 +63,8 @@ body {
 }
 .login-container,
 .signup-container,
-.questionnare-container
+.questionnare-container,
+.moreInfo-container
  {
   padding-top: 3%;
   padding-bottom: 5%;
@@ -71,14 +72,17 @@ body {
 
 .login-form-wrapper,
 .signup-form-wrapper,
-.questionnare-form-wrapper {
+.questionnare-form-wrapper ,
+.moreInfo-form-wrapper
+{
   margin: 0 auto;
   width: 80%; /* value of your choice which suits your alignment  */
 }
 
 .form-login,
 .form-signup,
-.form-questionnare
+.form-questionnare,
+.form-moreInfo
 {
   padding-top: 10px;
   padding-bottom: 20px;
@@ -116,7 +120,8 @@ body {
 
 .form-login .wrapper,
 .form-signup .wrapper,
-.form-questionnare .wrapper{
+.form-questionnare .wrapper
+{
   text-align: center;
 }
 
@@ -153,8 +158,17 @@ body {
   text-align: center;
 }
 
-/* Dashboard Styling */
+/* Moreinfo Styling */
 
-.btn {
+btn .nextbtn {
+  background-color: blue;
+  border-color: black !important;
+  color: black !important;
+  font-weight: bolder !important;
+  padding-top: 10%;
+}
 
+.last-txt {
+  padding-top: 3%;
+  text-align: center;
 }
