@@ -1,16 +1,32 @@
-const sequelize = require('../config/connection');
-const { User, UserProfile, Interest, UserInterest } = require('../models');
+// <<<<<<< HEAD
+// const router = require('express').Router();
+// const sequelize = require('../config/connection');
+// const { UserInterest , UserProfile, User, Interest} = require('../models');
+const withAuth = require("../utils/auth");
+
+
+
+const sequelize = require("../config/connection");
+const { User, UserProfile, Interest, UserInterest } = require("../models");
 const router = require("express").Router();
 // const withAuth = require('../utils/auth');
 
-// put back withAuth on both
-router.get('/', (req, res) => {
-    // handle req.body, if user doesnt select interest, age, gender, or lang
-    // req.body = {interests: "", age: 1, gender: "", lang: ""}
-    const { interest, age, gender } = req.query;
+router.get("/", (req, res) => {
+    // res.render("dashboard", { interest_name, loggedIn: true });
+    res.render("dashboard");
+  });
 
-    sequelize.query(`
-    SELECT 
+// put back  on both
+// router.get("/", withAuth, (req, res) => {
+router.get("/search", (req, res) => {
+  // handle req.body, if user doesnt select interest, age, gender, or lang
+  // req.body = {interests: "", age: 1, gender: "", lang: ""}
+  const { interest, age, gender } = req.query;
+
+  sequelize
+    .query(
+      `
+    SELECT
         user.username as username,
         user_profile.age as age,
         user_profile.bio as bio,
@@ -23,20 +39,21 @@ router.get('/', (req, res) => {
     WHERE interest.interest_name = '${interest}'
     AND user_profile.age = '${age}'
     AND user_profile.gender = '${gender}'
-    `)
+    `
+    )
     .then(([dbUserData]) => {
-        //serialize data before passing to template
-        // filter here to get users with (interests, age, gender)
-        // const users = dbUserData.map(user => {
-        //     // algorithm/ function() to handle filtering to return array of users
-        //     user.get({ plain: true });
-        // });
-        // res.render('dashboard', { users, loggedIn: true });
-        res.json(dbUserData);
+      //serialize data before passing to template
+      // filter here to get users with (interests, age, gender)
+      // const users = dbUserData.map(user => {
+      //     // algorithm/ function() to handle filtering to return array of users
+      //     user.get({ plain: true });
+      // });
+      // res.render('dashboard', { users, loggedIn: true });
+      res.json(dbUserData);
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
@@ -62,17 +79,17 @@ router.get('/:id', (req, res) => {
             if(dbUserData) {
                 const user = dbUserData.get({ plain: true });
 
-                res.render('PAGENAME', {
-                    user,
-                    loggedIn: true
-                });
-            } else {
-                res.status(404).end();
-            }
-        })
-        .catch(err => {
-            res.status(500).json(err);
+        res.render("PAGENAME", {
+          user,
+          loggedIn: true,
         });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;

@@ -15,11 +15,11 @@ const interestData = [
   },
   {
     id: 4,
-    interest_name: "photo",
+    interest_name: "photography",
   },
   {
     id: 5,
-    interest_name: "none",
+    interest_name: "technology",
   },
   {
     id: 6,

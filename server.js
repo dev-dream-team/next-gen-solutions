@@ -2,6 +2,8 @@ const path = require("path");
 const express = require("express");
 const exphbs = require("express-handlebars");
 const session = require("express-session");
+// const helpers = require("./utils/helpers");
+
 const helpers = require("./utils/helpers/auth");
 
 const routes = require("./controllers");
@@ -21,9 +23,9 @@ const sess = {
   store: new SequelStore({
     db: sequelize,
   }),
-  cookie: {
-    maxAge: 60 * 1000, // 60 sec
-  },
+  // cookie: {
+  //   maxAge: 60 * 1000, // 60 sec
+  // },
 };
 
 const app = express();
