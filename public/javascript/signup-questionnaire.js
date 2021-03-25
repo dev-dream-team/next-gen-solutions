@@ -6,9 +6,6 @@ async function signupQuestionnaireFormHandler(event) {
   var gender = $("input:checked").val();
   const phone = document.querySelector("#phone").value;
 
-  // const id = window.location.toString().split("/")[
-  //   window.location.toString().split("/").length - 1
-  // ];
   const user = document.querySelector("#user");
   const id = user.getAttribute("data-attr");
 

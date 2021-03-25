@@ -1,4 +1,4 @@
-const withAuth = require("../utils/helpers/auth");
+const withAuth = require("../utils/auth");
 
 const router = require("express").Router();
 const sequelize = require("../config/connection");
@@ -28,7 +28,7 @@ router.get("/upload-img", (req, res) => {
     where: {
       id: req.session.user_id,
     },
-    attributes: ["username"],
+    attributes: ["username", "id"],
   }).then((dbUserProfileData) => {
     if (!dbUserProfileData) {
       res.status(400).json({

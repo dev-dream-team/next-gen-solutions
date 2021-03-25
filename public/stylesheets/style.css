@@ -13,7 +13,7 @@ body {
   padding: 0;
   margin: 0;
   color: #333;
-  /* background-image: url("../assets/hobbies.jpg"); */
+    /* background-image: url("../assets/hobbies.jpg"); */
   background-size: cover;
 }
 main h1 {
@@ -357,3 +357,42 @@ a {
   
 }
 /*Profile Pic End*/
+
+.avatar {
+  vertical-align: middle;
+  width: 180px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+}
+div .avatar-wrapper {
+  /* text-align: center; */
+}
+
+section.my-profile {
+  background: whitesmoke;
+}
+
+section.my-profile .header-wrapper {
+  background-color: aliceblue;
+}
+
+h4 {
+  font-style: italic;
+  background-color: rgb(245, 242, 228);
+  text-align: center;
+}
+
+.page-wrapper {
+  padding: 40px;
+}
+
+.btn {
+  background-color: cornflowerblue;
+}
+
+.suggestions .card-header {
+  display: flex;
+  flex-direction: column;
+  float: left;
+}

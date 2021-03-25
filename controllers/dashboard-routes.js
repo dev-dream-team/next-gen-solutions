@@ -1,22 +1,90 @@
-// <<<<<<< HEAD
-// const router = require('express').Router();
-// const sequelize = require('../config/connection');
-// const { UserInterest , UserProfile, User, Interest} = require('../models');
-const withAuth = require("../utils/auth");
-
-// router.get("/dashboard", (req, res) => {
-//     // res.render("dashboard", { interest_name, loggedIn: true });
-//     res.render("dashboard");
-//   });
-
 const sequelize = require("../config/connection");
-const { User, UserProfile, Interest, UserInterest } = require("../models");
 const router = require("express").Router();
-// const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
+const { User, UserProfile, Interest } = require("../models");
 
-// put back  on both
 // router.get("/", withAuth, (req, res) => {
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
+  let userData, interestIds, suggestedUserIds, suggestedUserProfiles;
+  const userId = req.session.user_id;
+
+  // returns user profile for a given user
+  UserProfile.findOne({
+    where: {
+      user_id: userId,
+    },
+    include: [  
+      {
+        model: User,
+        attributes: ["username"],
+      },
+      {
+        model: Interest,
+        attributes: ["id", "interest_name"],
+        as: "user_interests",
+      },
+    ],
+  })
+    .then((dbUserData) => {
+      userData = dbUserData.get({ plain: true });
+      if (!userData) {
+        res.status(404).json({
+          message: "No profile found with this id",
+        });
+        return;
+      }
+      interestIds = userData.user_interests.map((interest) => interest.id);
+
+      // returns user ids of users who share given user's interests
+      sequelize
+        .query(
+          `
+            select DISTINCT 
+            user_profile.user_id
+            from user_profile
+            INNER join user_interest
+            ON user_profile.user_id = user_profile_id 
+            WHERE user_interest.interest_id in (${interestIds})
+            AND NOT user_profile_id = ${userId}
+            `
+          // AND NOT user_profile_id = ${userId}
+        )
+        .then(([suggestedUsers]) => {
+          suggestedUserIds = suggestedUsers.map((user) => user.user_id);
+          console.log(suggestedUserIds);
+
+          // returns user profiles of users who share given user's interests
+          UserProfile.findAll({
+            where: {
+              user_id: suggestedUserIds,
+            },
+            include: [
+              {
+                model: User,
+                attributes: ["username"],
+              },
+              {
+                model: Interest,
+                attributes: ["id", "interest_name"],
+                as: "user_interests",
+              },
+            ],
+          }).then((dbUserData) => {
+            suggestedUserProfiles = dbUserData.map((profile) =>
+              profile.get({ plain: true })
+            );
+            console.log(suggestedUserProfiles[0]);
+            res.render("dashboard", { userData, suggestedUserProfiles });
+          });
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/search", (req, res) => {
   // handle req.body, if user doesnt select interest, age, gender, or lang
   // req.body = {interests: "", age: 1, gender: "", lang: ""}
   const { interest, age, gender } = req.query;

@@ -1,15 +1,7 @@
 const router = require("express").Router();
-// <<<<<<< HEAD
-// const registrationRoutes = require("./registration-routes");
-// const matchmakerRoutes = require("./matchmaker-routes");
-// const apiRoutes = require("./api");
 
-// router.use("/api", apiRoutes);
-// router.use("/registration", registrationRoutes);
-// router.use("/suggestions", matchmakerRoutes);
-// =======
-
-// Collects the packaged group of API endpoints and prefixing them with the path /api
+// Collects the packaged group of API and public endpoints,
+// then prefixes them with the path
 const apiRoutes = require("./api");
 const homeRoutes = require("./home-routes.js");
 const dashboardRoutes = require("./dashboard-routes.js");
@@ -19,7 +11,6 @@ router.use("/api", apiRoutes);
 router.use("/", homeRoutes);
 router.use("/profile", userProfileRoutes);
 router.use("/dashboard", dashboardRoutes);
-// >>>>>>> main
 
 // if we make a request to any endpoint that doesn't exist,
 // we'll receive a 404 error indicating we have requested an incorrect resource,

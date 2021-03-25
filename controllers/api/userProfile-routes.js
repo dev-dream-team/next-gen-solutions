@@ -70,7 +70,7 @@ router.put("/:id", (req, res) => {
     }
     UserProfile.update(req.body, {
       where: {
-        id: req.params.id,
+        user_id: req.params.id,
       },
     })
       .then((dbUserProfileData) => {
