@@ -5,7 +5,7 @@ router.get("/", (req, res) => {
     res.render("homepage");
     return;
   }
-  res.redirect("/dashboard");
+  res.render("homepage", { loggedIn: true });
 });
 
 router.get("/login", (req, res) => {

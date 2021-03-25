@@ -2,7 +2,7 @@ const withAuth = require("../utils/auth");
 
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { User } = require("../models");
+const { User, Interest } = require("../models");
 
 router.get("/questionnaire", withAuth, (req, res) => {
   User.findOne({
@@ -23,7 +23,8 @@ router.get("/questionnaire", withAuth, (req, res) => {
 });
 
 // router.get("/", withAuth, (req, res) => {
-router.get("/upload-img", (req, res) => {
+router.get("/more-info", (req, res) => {
+  let interests, user;
   User.findOne({
     where: {
       id: req.session.user_id,
@@ -36,8 +37,14 @@ router.get("/upload-img", (req, res) => {
       });
       return;
     }
-    const user = dbUserProfileData.get({ plain: true });
-    res.render("upload-img", { user, loggedIn: true });
+    Interest.findAll({
+      attributes: ["id", "interest_name"],
+    }).then((dbInterests) => {
+      interests = dbInterests.map((profile) => profile.get({ plain: true }));
+      console.log(interests);
+      user = dbUserProfileData.get({ plain: true });
+      res.render("more-info", { user, interests, loggedIn: true });
+    });
   });
 });
 
