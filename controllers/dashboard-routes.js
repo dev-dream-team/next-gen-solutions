@@ -13,7 +13,7 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
     // res.render("dashboard", { interest_name, loggedIn: true });
-    res.render("dashboard");
+    res.render("dashboard-search");
   });
 
 // put back  on both

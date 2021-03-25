@@ -1,4 +1,4 @@
-async function searchFormHandler(event) {
+function searchFormHandler(event) {
     event.preventDefault();
 
     const interest = document.querySelector("#interest-dropdown").value;
