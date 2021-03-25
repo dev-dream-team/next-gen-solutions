@@ -20,7 +20,7 @@ async function signupQuestionnaireFormHandler(event) {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    document.location.replace("/profile/bio");
+    document.location.replace("/profile/more-info");
   } else {
     alert(response.statusText);
   }
