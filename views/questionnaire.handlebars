@@ -1,112 +1,110 @@
 {{> auth-user-navbar}}
-<form class="questionnare-form">
-  {{! Enter Age   }}
-  <div>
-    <label for="Age">
-      Age:
-    </label>
-    <div>
-      <input class="form-control" type="number" placeholder="18" id="age" />
+<div class="questionnare-container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-5 questionnare-form-wrapper">
+            <div class="form-questionnare">
+           {{! Enter Age   }}
+            <div>
+              <label for="Age">
+                Age:
+              </label>
+              <div>
+                <input class="form-control" type="number" placeholder="18" id="age" />
+                  <small id="ageHelpInline" class="text-muted">
+                  Enter your age
+                </small>
+              </div>
+            </div>
+            </br>
+ {{! Enter Bio  }}
+            <div>
+              <label for="bio">
+                Bio :
+              </label>
+              <div class="input-group">
+                <textarea
+                  class="form-control"
+                  id="bio"
+                  placeholder="Tell me more about yourself..."
+                  aria-label="With textarea"
+                ></textarea>
+              </div>
+            </div>
+            </br>
+{{! Select Gender }}
+            <div>
+              <label for="Gender">
+                Gender:
+              </label>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="Female"
+                    id="Female"
+                  />
+                  Female
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="Male"
+                    id="Male"
+                  />
+                  Male
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="Non-Binary"
+                    id="Non-Binary"
+                  />
+                  Non-Binary
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    value="Choose Not to Say"
+                    id="Choose_Not_to_Say"
+                  />
+                  Choose Not to Say
+                </label>
+              </div>
+            </div>
+            </br>
+   {{! Enter Contact info }}
+            <div>
+              <label for="example-tel-input">
+              Contact Number:
+            </label>
+            <div>
+              <input
+                class="form-control"
+                type="tel"
+                placeholder="1-(555)-555-5555"
+                id="phone"/>
+            </div>
+            </div>
+            </br>
+            <div class="wrapper">
+              <span class="group-btn">     
+                <a href="#" class="btn btn-primary" id="submit">Next</a>
+              </span>
+            </div>          
     </div>
-  </div>
-  <small id="ageHelpInline" class="text-muted">
-    Enter your age
-  </small>
-  <hr />
-  {{! Enter Bio  }}
-  <label for="bio">
-    Bio :
-  </label>
-  <div class="input-group">
-    <textarea
-      class="form-control"
-      id="bio"
-      placeholder="Tell me more about yourself..."
-      aria-label="With textarea"
-    ></textarea>
-  </div>
-  {{! Select Gender }}
-  <label for="Gender">
-    Gender:
-  </label>
-  <div class="form-check form-check-inline">
-    <label class="form-check-label">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="gender"
-        value="Female"
-        id="Female"
-      />
-      Female
-    </label>
-  </div>
-  <div class="form-check form-check-inline">
-    <label class="form-check-label">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="gender"
-        value="Male"
-        id="Male"
-      />
-      Male
-    </label>
-  </div>
-  <div class="form-check form-check-inline">
-    <label class="form-check-label">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="gender"
-        value="Non-Binary"
-        id="Non-Binary"
-      />
-      Non-Binary
-    </label>
-  </div>
-  <div class="form-check form-check-inline">
-    <label class="form-check-label">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="gender"
-        value="Choose Not to Say"
-        id="Choose_Not_to_Say"
-      />
-      Choose Not to Say
-    </label>
-  </div>
-  {{! Enter Contact info }}
-  <label for="example-tel-input">
-    Contact Number:
-  </label>
-  <div>
-    <input
-      class="form-control"
-      type="tel"
-      placeholder="1-(555)-555-5555"
-      id="phone"
-    />
-  </div>
-  <div>
-    <button type="submit" class="nextbtn">
-      Next
-    </button>
-  </div>
-</form>
-{{! <script
-  language="JavaScript"
-  type="text/javascript"
-  src="/js/jquery-1.2.6.min.js"
-></script>
-<script
-  language="JavaScript"
-  type="text/javascript"
-  src="/js/jquery-ui-personalized-1.5.2.packed.js"
-></script>
-<script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-></script> }}
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script src="/javascript/signup-questionnaire.js"></script>
+    </div>  
+</div>

@@ -58,23 +58,29 @@ body {
     /* Login and signup styling */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 .form-login body,
-form-signup body {
+.form-signup body {
   -webkit-font-smoothing: antialiased;
 }
 .login-container,
-.signup-container {
-  padding-top: 10%;
-  padding-bottom: 10%;
+.signup-container,
+.questionnare-container
+ {
+  padding-top: 3%;
+  padding-bottom: 5%;
 }
 
+
 .login-form-wrapper,
-.signup-form-wrapper {
+.signup-form-wrapper,
+.questionnare-form-wrapper {
   margin: 0 auto;
-  width: 80%; /* value of your choice which suits your alignment */
+  width: 80%; /* value of your choice which suits your alignment  */
 }
+
 .form-login,
-.form-signup {
-  
+.form-signup,
+.form-questionnare
+{
   padding-top: 10px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -86,33 +92,38 @@ form-signup body {
 }
 
 .form-login h4,
-.form-signup h4 {
+.form-signup h4,
+.form-questionnare h4{
   font-size: xsx-large;
   border-bottom-width: 1px;
   text-align: center;
   padding-top: 20pt;
 }
 
-.form-signup p {
+.form-signup p ,
+.form-questionnare p{
   font-size : small;
 }
-#username-signup,
-#email-login {
+#username,
+#email {
   margin-top: 20px;
 }
 
 .form-login .form-control,
-.form-signup .form-control {
+.form-signup .form-control,
+.form-questionnare .form-control {
   border-radius: 10px;
 }
 
 .form-login .wrapper,
-.form-signup .wrapper {
+.form-signup .wrapper,
+.form-questionnare .wrapper{
   text-align: center;
 }
 
 .form-login .group-btn,
-.form-signup .group-btn {
+.form-signup .group-btn,
+.form-questionnare .group-btn {
   padding-bottom: 20pt;
 }
 
@@ -123,7 +134,8 @@ form-signup body {
 }
 
 .form-login .wrapper > a,
-.form-signup .wrapper > a {
+.form-signup .wrapper > a
+.form-questionnare .wrapper > a  {
   color: black;
   background: #65a7a6e8;
   font-weight: bolder;
@@ -133,4 +145,9 @@ form-signup body {
 .help-text {
   color: maroon !important;
   font-size: small;
+}
+
+.display_username h3{
+  padding-top: 3%;
+  text-align: center;
 }
