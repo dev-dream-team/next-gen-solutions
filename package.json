@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress open",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node seeds/index.js"
@@ -34,5 +34,9 @@
     "nodemon": "^2.0.7",
     "sequelize": "^6.5.1"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "cypress": "^6.8.0",
+    "cypress-file-upload": "^5.0.3"
+  }
 }
