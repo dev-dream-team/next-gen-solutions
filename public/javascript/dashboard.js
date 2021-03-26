@@ -6,7 +6,7 @@ function searchFormHandler(event) {
     const gender = document.querySelector("#gender-dropdown").value;
 
     if (interest && age && gender) {
-        document.location.replace(`dashboard?interest=${interest}&age=${age}&gender=${gender}`)
+        document.location.replace(`/dashboard?interest=${interest}&age=${age}&gender=${gender}`)
     }
 }
 
