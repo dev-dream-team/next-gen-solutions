@@ -1,5 +1,6 @@
 <h1>search results</h1>
-{{#each user}}
+{{#each users as |user|}}
+<h2>{{user.username}}</h2>
 <div class="avatar-wrapper">
     <img src={{user.profile_url}} alt="User avatar" class="avatar" />
 </div>

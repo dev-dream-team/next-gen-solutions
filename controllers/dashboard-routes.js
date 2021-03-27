@@ -2,10 +2,17 @@ const sequelize = require("../config/connection");
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, UserProfile, Interest } = require("../models");
+const { compareSync } = require("bcrypt");
 
 router.get("/", (req, res) => {
   // res.render("dashboard", { interest_name, loggedIn: true });
   res.render("dashboard-search");
+});
+
+router.post("/search-results-views", (req, res) => {
+  // console.log("hello")
+  // const users = req.body;
+  res.render("search-results");
 });
 
 // put back  on both
@@ -14,10 +21,11 @@ router.get("/search-results", (req, res) => {
   // handle req.body, if user doesnt select interest, age, gender, or lang
   // req.body = {interests: "", age: 1, gender: "", lang: ""}
   // add back age
-  console.log(req.body);
-  const { interest, gender } = req.query;
+  const { interest: interest, gender: gender } = req.query;
 
-  console.log(interest, gender);
+  // const interest = req.query.interest;
+  // const gender = req.query.gender;
+
   sequelize
     .query(
       `
@@ -32,18 +40,24 @@ router.get("/search-results", (req, res) => {
     JOIN interest ON interest.id = user_interest.interest_id
     WHERE interest.interest_name = '${interest}'
     AND user_profile.gender = '${gender}'
-    `
+    `, 
+    {
+      model: User
+    }
       // add age above     AND user_profile.age = '${age}'
       //         user_profile.age as age,
     )
-    .then(([dbUserData]) => {
+    .then((dbUserData) => {
       //serialize data before passing to template
       // filter here to get users with (interests, age, gender)
+      console.log(dbUserData);
       const users = dbUserData.map((user) => {
-        //     // algorithm/ function() to handle filtering to return array of users
-        user.get({ plain: true });
+        return user.get({ raw: true })
       });
-      res.render("search-results", { users, loggedIn: true });
+      console.log({users})
+      var obj = {users: users, loggedIn: true}
+      res.render("search-results", obj)
+      // res.status(200).send(users);
     })
     .catch((err) => {
       console.log(err);

@@ -5,19 +5,26 @@ async function searchFormHandler(event) {
     // const age = document.querySelector("#age-dropdown").value;
     const gender = document.querySelector("#gender-dropdown").value;
 
-    console.log(interest, gender)
+    console.log("interest:" + interest + " gender:" + gender)
 
 // add age back in
     if (interest && gender) {
-        const response = await fetch(`/dashboard/search-results?interest=${interest}&${gender}`)
-        alert("clicked")
-        if (response.ok) {
-            document.location.replace(`/dashboard/search-results`)
-        } else {
-            alert(response.statusText)
-        }
-        // age &age=${age}
+        // const response = await fetch(`/dashboard/search-results?interest=${interest}&gender=${gender}`)
+        // alert("clicked")
+        // if (response.ok) {
+        //     const data = await response.json();
+        //     // document.location.replace(`/dashboard/search-results-views`)
+        //     const secondFetch = await fetch('/dashboard/search-results-views', {
+        //         method: "POST",
+        //         body: JSON.stringify(data)
+        //     })
+        // } else {
+        //     alert(response.statusText)
+        // }
 
+        document.location.replace(`/dashboard/search-results?interest=${interest}&gender=${gender}`)
+
+        // age &age=${age}
     }
 }
 
