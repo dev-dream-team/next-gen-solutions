@@ -4,31 +4,31 @@
 // const { UserInterest , UserProfile, User, Interest} = require('../models');
 const withAuth = require("../utils/auth");
 
-
-
 const sequelize = require("../config/connection");
 const { User, UserProfile, Interest, UserInterest } = require("../models");
 const router = require("express").Router();
 // const withAuth = require('../utils/auth');
 
 router.get("/", (req, res) => {
-    // res.render("dashboard", { interest_name, loggedIn: true });
-    res.render("dashboard-search");
-  });
+  // res.render("dashboard", { interest_name, loggedIn: true });
+  res.render("dashboard-search");
+});
 
 // put back  on both
 // router.get("/", withAuth, (req, res) => {
-router.get("/search", (req, res) => {
+router.get("/search-results", (req, res) => {
   // handle req.body, if user doesnt select interest, age, gender, or lang
   // req.body = {interests: "", age: 1, gender: "", lang: ""}
-  const { interest, age, gender } = req.query;
+  // add back age
+  console.log(req.body);
+  const { interest, gender } = req.query;
 
+  console.log(interest, gender);
   sequelize
     .query(
       `
     SELECT
         user.username as username,
-        user_profile.age as age,
         user_profile.bio as bio,
         user_profile.gender as gender,
         interest.interest_name as interest
@@ -37,19 +37,19 @@ router.get("/search", (req, res) => {
     JOIN user_interest ON user_interest.user_profile_id = user_profile.id
     JOIN interest ON interest.id = user_interest.interest_id
     WHERE interest.interest_name = '${interest}'
-    AND user_profile.age = '${age}'
     AND user_profile.gender = '${gender}'
     `
+      // add age above     AND user_profile.age = '${age}'
+      //         user_profile.age as age,
     )
     .then(([dbUserData]) => {
       //serialize data before passing to template
       // filter here to get users with (interests, age, gender)
-      // const users = dbUserData.map(user => {
-      //     // algorithm/ function() to handle filtering to return array of users
-      //     user.get({ plain: true });
-      // });
-      // res.render('dashboard', { users, loggedIn: true });
-      res.json(dbUserData);
+      const users = dbUserData.map((user) => {
+        //     // algorithm/ function() to handle filtering to return array of users
+        user.get({ plain: true });
+      });
+      res.render("search-results", { users, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);
@@ -57,27 +57,23 @@ router.get("/search", (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
-    User.findByPk(req.params.id, {
-        attributes: [
-            'id',
-            'username',
-            'email'
-        ],
-        include: [
-            {
-                model: UserProfile,
-                attributes: ['id', 'age', 'user_id', 'gender', 'bio']
-            },
-            {
-                model: UserInterests,
-                attributes: ['id', 'interest_id', 'user_id']
-            }
-        ]
-    })
-        .then(dbUserData => {
-            if(dbUserData) {
-                const user = dbUserData.get({ plain: true });
+router.get("/:id", (req, res) => {
+  User.findByPk(req.params.id, {
+    attributes: ["id", "username", "email"],
+    include: [
+      {
+        model: UserProfile,
+        attributes: ["id", "age", "user_id", "gender", "bio"],
+      },
+      {
+        model: UserInterest,
+        attributes: ["id", "interest_id", "user_id"],
+      },
+    ],
+  })
+    .then((dbUserData) => {
+      if (dbUserData) {
+        const user = dbUserData.get({ plain: true });
 
         res.render("PAGENAME", {
           user,

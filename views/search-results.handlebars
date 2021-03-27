@@ -1,0 +1,18 @@
+<h1>search results</h1>
+{{#each user}}
+<div class="avatar-wrapper">
+    <img src={{user.profile_url}} alt="User avatar" class="avatar" />
+</div>
+<div class="user-info">
+    Interests: {{user.interest}}
+</div>
+<div class="user-info">
+    Age: {{user.age}}
+</div>
+<div class="user-info">
+    Gender: {{user.gender}}
+</div>
+<div class="user-info">
+    Contact info: {{user.facebook}} {{user.instagram}}
+</div>
+{{/each}}

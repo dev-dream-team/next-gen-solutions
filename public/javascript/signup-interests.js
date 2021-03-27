@@ -11,7 +11,7 @@ async function signupInterestFormHandler(event) {
   
     if (interest) {
       console.log(age);
-      const response = await fetch(`api/userProfiles/${id}`, {
+      const response = await fetch(`/api/userProfiles/${id}`, {
         method: "PUT",
         body: JSON.stringify({
           interest
