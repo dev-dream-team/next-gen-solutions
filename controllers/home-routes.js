@@ -2,10 +2,10 @@ const router = require("express").Router();
 
 router.get("/", (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect("/signup");
+    res.render("homepage");
     return;
   }
-  res.redirect("/dashboard");
+  res.render("homepage", { loggedIn: true });
 });
 
 router.get("/login", (req, res) => {

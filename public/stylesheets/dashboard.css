@@ -1,0 +1,47 @@
+.avatar {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  text-align: center;
+}
+div .avatar-wrapper {
+  /* text-align: center; */
+}
+
+.my-profile img {
+  vertical-align: middle;
+  width: 250px;
+  height: 250px;
+  border-radius: 0%;
+  text-align: center;
+}
+
+section.my-profile {
+  background: whitesmoke;
+}
+
+section.my-profile .header-wrapper {
+  background-color: aliceblue;
+}
+
+h4 {
+  font-style: italic;
+  background-color: rgb(245, 242, 228);
+  text-align: center;
+}
+
+.page-wrapper {
+  padding: 40px;
+}
+
+.btn {
+  background-color: rgb(189, 176, 111) 
+}   
+
+.suggestionscard-header {
+  display: flex;  
+  flex-direction: column;
+  float: left;
+}
+

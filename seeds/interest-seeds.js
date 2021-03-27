@@ -2,15 +2,13 @@ const { Interest } = require("../models");
 
 const interestData = [
   {
-    id: 1,
     interest_name: "biking",
   },
   {
-    id: 2,
     interest_name: "hiking",
   },
   {
-    id: 3,
+    // id: 3,
     interest_name: "cooking",
   },
   {
@@ -22,35 +20,35 @@ const interestData = [
     interest_name: "technology",
   },
   {
-    id: 6,
+    // id: 6,
     interest_name: "dancing",
   },
   {
-    id: 7,
+    // id: 7,
     interest_name: "music",
   },
   {
-    id: 8,
+    // id: 8,
     interest_name: "blogging",
   },
   {
-    id: 9,
+    // id: 9,
     interest_name: "entrepreneurship",
   },
   {
-    id: 10,
+    // id: 10,
     interest_name: "mentoring",
   },
   {
-    id: 11,
+    // id: 11,
     interest_name: "sports",
   },
   {
-    id: 12,
+    // id: 12,
     interest_name: "running",
   },
   {
-    id: 13,
+    // id: 13,
     interest_name: "pop culture",
   },
 ];

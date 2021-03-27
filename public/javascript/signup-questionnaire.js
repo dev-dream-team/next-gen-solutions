@@ -6,9 +6,12 @@ async function signupQuestionnaireFormHandler(event) {
   var gender = $("input:checked").val();
   const phone = document.querySelector("#phone").value;
 
+<<<<<<< HEAD
   // const id = window.location.toString().split("/")[
   //   window.location.toString().split("/").length - 1
   // ];
+=======
+>>>>>>> 26f1144285d5773bc44f66b11e0572aa968ea70e
   const user = document.querySelector("#user");
   const id = user.getAttribute("data-attr");
 
@@ -23,7 +26,11 @@ async function signupQuestionnaireFormHandler(event) {
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
+<<<<<<< HEAD
     document.location.replace("/profile/upload-img");
+=======
+    document.location.replace("/profile/more-info");
+>>>>>>> 26f1144285d5773bc44f66b11e0572aa968ea70e
   } else {
     alert(response.statusText);
   }

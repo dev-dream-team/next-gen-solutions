@@ -25,6 +25,10 @@ async function loginFormHandler(event) {
 }
 
 
+<<<<<<< HEAD
 document.querySelector(".nextbtn").addEventListener("click", loginFormHandler);
+=======
+document.querySelector("#submit").addEventListener("click", loginFormHandler);
+>>>>>>> 26f1144285d5773bc44f66b11e0572aa968ea70e
 
 

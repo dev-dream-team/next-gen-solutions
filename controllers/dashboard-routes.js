@@ -1,13 +1,7 @@
-// <<<<<<< HEAD
-// const router = require('express').Router();
-// const sequelize = require('../config/connection');
-// const { UserInterest , UserProfile, User, Interest} = require('../models');
-const withAuth = require("../utils/auth");
-
 const sequelize = require("../config/connection");
-const { User, UserProfile, Interest, UserInterest } = require("../models");
 const router = require("express").Router();
-// const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
+const { User, UserProfile, Interest } = require("../models");
 
 router.get("/", (req, res) => {
   // res.render("dashboard", { interest_name, loggedIn: true });
