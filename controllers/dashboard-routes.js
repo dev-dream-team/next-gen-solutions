@@ -32,7 +32,10 @@ router.get("/search-results", (req, res) => {
     SELECT
         user.username as username,
         user_profile.bio as bio,
+        user_profile.age as age,
         user_profile.gender as gender,
+        user_profile.phone as phone,
+        user_profile.profile_url as photo,
         interest.interest_name as interest
     FROM user
     JOIN user_profile ON user_profile.user_id = user.id
@@ -45,7 +48,7 @@ router.get("/search-results", (req, res) => {
       model: User
     }
       // add age above     AND user_profile.age = '${age}'
-      //         user_profile.age as age,
+      //         
     )
     .then((dbUserData) => {
       //serialize data before passing to template
@@ -65,35 +68,35 @@ router.get("/search-results", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
-  User.findByPk(req.params.id, {
-    attributes: ["id", "username", "email"],
-    include: [
-      {
-        model: UserProfile,
-        attributes: ["id", "age", "user_id", "gender", "bio"],
-      },
-      {
-        model: UserInterest,
-        attributes: ["id", "interest_id", "user_id"],
-      },
-    ],
-  })
-    .then((dbUserData) => {
-      if (dbUserData) {
-        const user = dbUserData.get({ plain: true });
+// router.get("/:id", (req, res) => {
+//   User.findByPk(req.params.id, {
+//     attributes: ["id", "username", "email"],
+//     include: [
+//       {
+//         model: UserProfile,
+//         attributes: ["id", "age", "user_id", "gender", "bio"],
+//       },
+//       {
+//         model: UserInterest,
+//         attributes: ["id", "interest_id", "user_id"],
+//       },
+//     ],
+//   })
+//     .then((dbUserData) => {
+//       if (dbUserData) {
+//         const user = dbUserData.get({ plain: true });
 
-        res.render("PAGENAME", {
-          user,
-          loggedIn: true,
-        });
-      } else {
-        res.status(404).end();
-      }
-    })
-    .catch((err) => {
-      res.status(500).json(err);
-    });
-});
+//         res.render("PAGENAME", {
+//           user,
+//           loggedIn: true,
+//         });
+//       } else {
+//         res.status(404).end();
+//       }
+//     })
+//     .catch((err) => {
+//       res.status(500).json(err);
+//     });
+// });
 
 module.exports = router;

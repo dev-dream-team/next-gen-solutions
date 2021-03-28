@@ -6,7 +6,8 @@ const userProfileData = [
         user_id: 1,
         age: 24,
         bio: 'Hi!',
-        gender: 'female'
+        gender: 'female',
+        phone: '6264872173'
     }
 ];
 
