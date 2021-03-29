@@ -141,8 +141,7 @@ router.get("/search-results", withAuth, (req, res) => {
         return user.get({ raw: true });
       });
       console.log({ users });
-      var obj = { users: users, loggedIn: true };
-      res.render("search-results", obj);
+      res.render("search-results", { users, loggedIn: true });
       // res.status(200).send(users);
     })
     .catch((err) => {
