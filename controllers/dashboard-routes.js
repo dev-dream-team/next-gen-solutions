@@ -101,6 +101,7 @@ router.get("/search-results", (req, res) => {
   // req.body = {interests: "", age: 1, gender: "", lang: ""}
   // add back age
   const { interest: interest, gender: gender } = req.query;
+  const userId = req.session.user_id;
 
   // const interest = req.query.interest;
   // const gender = req.query.gender;
@@ -122,6 +123,7 @@ router.get("/search-results", (req, res) => {
     JOIN interest ON interest.id = user_interest.interest_id
     WHERE interest.interest_name = '${interest}'
     AND user_profile.gender = '${gender}'
+    AND NOT user_profile_id = ${userId}
     `, 
     {
       model: User
