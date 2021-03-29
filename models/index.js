@@ -10,7 +10,7 @@ User.hasOne(UserProfile, {
 
 UserProfile.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "cascade",
+  onDelete: "CASCADE",
 });
 
 // UserProfile.hasMany(Interest, {

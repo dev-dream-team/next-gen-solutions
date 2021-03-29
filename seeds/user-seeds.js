@@ -15,8 +15,8 @@ const userData = [
     },
     {
         id: 3,
-        username: 'yulduz',
-        email: 'yulduz@yahoo.com',
+        username: 'robot',
+        email: 'robot@yahoo.com',
         password: 'password'
     }
 ];

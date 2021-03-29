@@ -14,7 +14,7 @@ async function loginFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/dashboard");
     } else {
       alert("Incorrect email or password");
       document.location.reload();
@@ -24,7 +24,4 @@ async function loginFormHandler(event) {
   }
 }
 
-
 document.querySelector("#submit").addEventListener("click", loginFormHandler);
-
-

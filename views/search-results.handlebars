@@ -1,0 +1,34 @@
+  {{> auth-user-navbar}}
+  <section class="suggestions col">
+    <h4>Search Results</h4>
+    <div class="row">
+      {{#each users as |user|}}
+        <div class="col-sm-4">
+          <div class="user">
+            <div class="header-wrapper card-header">
+              <div>
+                <h2>
+                    {{user.username}}
+                </h2>
+              </div>
+              <div class="avatar-wrapper">
+                <img src={{user.photo}} alt="User avatar" class="avatar" />
+              </div>
+             <div class="user-info">
+                Interests: {{user.interest}}
+              </div>
+            <div class="user-info">
+              Age: {{user.age}}
+              </div>
+             <div class="user-info">
+              Gender: {{user.gender}}
+              </div>
+             <div class="user-info">
+                Contact info: {{user.phone}}
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </section>
