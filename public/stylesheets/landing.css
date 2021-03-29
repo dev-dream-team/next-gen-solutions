@@ -1,61 +1,57 @@
 /* Landing page styling */
 body {
-    background-color:lightyellow !important;
-    font-family: "Asap", sans-serif;
-    color:#989898;
-    margin:10px;
-    font-size:16px;
-  }
-  
-  #demo {
-    height:100%;
-    position:relative;
-    overflow:hidden;
-  }
-  
-  
-  .green{
-    background-color:#6fb936;
-  }
-          .thumb{
-              margin-bottom: 30px;
-          }
-          
-          .page-top{
-              margin-top:85px;
-          }
-    
-  img.zoom {
-      width: 100%;
-      height: 200px;
-      border-radius:5px;
-      object-fit:cover;
-      -webkit-transition: all .3s ease-in-out;
-      -moz-transition: all .3s ease-in-out;
-      -o-transition: all .3s ease-in-out;
-      -ms-transition: all .3s ease-in-out;
-  }
-          
-   
-  .transition {
-      -webkit-transform: scale(1.2); 
-      -moz-transform: scale(1.2);
-      -o-transform: scale(1.2);
-      transform: scale(1.2);
-  }
-      .modal-header {
-     
-       border-bottom: none;
-  }
-      .modal-title {
-          color:#000;
-      }
-      .modal-footer{
-        display:none;  
-      }
-  
+  background-color: lightyellow !important;
+  font-family: "Asap", sans-serif;
+  color: #989898;
+  margin: 10px;
+  font-size: 16px;
+}
 
-    /* Login and signup styling */
+#demo {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.green {
+  background-color: #6fb936;
+}
+.thumb {
+  margin-bottom: 30px;
+}
+
+.page-top {
+  margin-top: 85px;
+}
+
+img.zoom {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+.transition {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.modal-header {
+  border-bottom: none;
+}
+.modal-title {
+  color: #000;
+}
+.modal-footer {
+  display: none;
+}
+
+/* Login and signup styling */
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 .form-login body,
 .form-signup body {
@@ -64,17 +60,20 @@ body {
 .login-container,
 .signup-container,
 .questionnare-container,
-.moreInfo-container
- {
+.moreInfo-container {
   padding-top: 3%;
   padding-bottom: 5%;
 }
 
+div .cta-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-form-wrapper,
 .signup-form-wrapper,
-.questionnare-form-wrapper ,
-.moreInfo-form-wrapper
-{
+.questionnare-form-wrapper,
+.moreInfo-form-wrapper {
   margin: 0 auto;
   width: 80%; /* value of your choice which suits your alignment  */
 }
@@ -82,8 +81,7 @@ body {
 .form-login,
 .form-signup,
 .form-questionnare,
-.form-moreInfo
-{
+.form-moreInfo {
   padding-top: 10px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -96,16 +94,16 @@ body {
 
 .form-login h4,
 .form-signup h4,
-.form-questionnare h4{
+.form-questionnare h4 {
   font-size: xsx-large;
   border-bottom-width: 1px;
   text-align: center;
   padding-top: 20pt;
 }
 
-.form-signup p ,
-.form-questionnare p{
-  font-size : small;
+.form-signup p,
+.form-questionnare p {
+  font-size: small;
 }
 #username,
 #email {
@@ -120,8 +118,7 @@ body {
 
 .form-login .wrapper,
 .form-signup .wrapper,
-.form-questionnare .wrapper
-{
+.form-questionnare .wrapper {
   text-align: center;
 }
 
@@ -139,8 +136,7 @@ body {
 }
 
 .form-login .wrapper > a,
-.form-signup .wrapper > a
-.form-questionnare .wrapper > a  {
+.form-signup .wrapper > a .form-questionnare .wrapper > a {
   color: black;
   background: #65a7a6e8;
   font-weight: bolder;
@@ -153,7 +149,7 @@ body {
 }
 
 /*  Partials - Display username */
-.display_username h3{
+.display_username h3 {
   padding-top: 3%;
   text-align: center;
 }
@@ -172,4 +168,3 @@ btn .nextbtn {
   padding-top: 3%;
   text-align: center;
 }
-
