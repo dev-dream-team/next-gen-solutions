@@ -2,7 +2,6 @@ const sequelize = require("../config/connection");
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, UserProfile, Interest } = require("../models");
-const { compareSync } = require("bcrypt");
 
 router.get("/", withAuth, (req, res) => {
   let userData, interestIds, suggestedUserIds, suggestedUserProfiles;
