@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 const { User, UserProfile, Interest } = require("../models");
 const { compareSync } = require("bcrypt");
 
-router.get("/", (req, res) => {
+router.get("/search", (req, res) => {
   // res.render("dashboard", { interest_name, loggedIn: true });
   res.render("dashboard-search");
 });
