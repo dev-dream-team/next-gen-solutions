@@ -4,6 +4,8 @@
 
 ## Description 🤓
 Connects people based on their preferences
+
+![Untitled_ Mar 29, 2021 2_43 AM (2)](https://user-images.githubusercontent.com/13324397/112804438-0b7a4f00-903a-11eb-9c26-3cb4ce49b229.gif)
   
 ## Table of Contents 🗒️
 * 🔧 [Installation](#installation)
